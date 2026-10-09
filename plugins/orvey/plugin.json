@@ -1,0 +1,59 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "orvey",
+  "version": "1.1.0",
+  "description": "Image studio on your own API key: many different concepts for one brief, drafts and finals with GPT Image, Nano Banana and others, result cards and concept boards right in the chat, prices in tokens, everything kept in your orvey library.",
+  "author": {
+    "name": "Piwqust",
+    "url": "https://orvey.angleford.co"
+  },
+  "homepage": "https://orvey.angleford.co/connect",
+  "repository": "https://github.com/Piwqust/orvey-plugin",
+  "license": "MIT",
+  "keywords": [
+    "images",
+    "image-generation",
+    "concepts",
+    "moodboard",
+    "design",
+    "gpt-image",
+    "nano-banana",
+    "mcp-apps"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "orvey",
+        "shortDescription": "Картинки и концепты из вашей студии orvey",
+        "longDescription": "orvey рисует картинки через ключ вашей студии к моделям (GPT Image 2.5, Nano Banana и другие) и хранит всё, что сделано. В чате: десять по-настоящему разных концептов на один бриф с выбором одной кнопкой, черновики и финальные версии, бесплатная проверка запроса с ценой в токенах, поиск по своей библиотеке и студия на весь экран.",
+        "developerName": "orvey",
+        "category": "Creativity",
+        "capabilities": [
+          "Interactive",
+          "Read",
+          "Write"
+        ],
+        "websiteURL": "https://orvey.angleford.co/connect",
+        "privacyPolicyURL": "https://orvey.angleford.co/privacy",
+        "termsOfServiceURL": "https://orvey.angleford.co/terms",
+        "defaultPrompt": [
+          "Придумай 10 разных концептов обложки",
+          "Нарисуй баннер 16:9 для запуска продукта",
+          "Открой студию orvey"
+        ],
+        "brandColor": "#3B82F6",
+        "composerIcon": "./assets/composer-icon.svg",
+        "logo": "./assets/logo.png",
+        "screenshots": [
+          "./assets/screenshots/01-concepts-card.png",
+          "./assets/screenshots/02-pick-and-send.png",
+          "./assets/screenshots/03-viewer.png",
+          "./assets/screenshots/04-images-light.png",
+          "./assets/screenshots/05-studio-board.png",
+          "./assets/screenshots/06-studio-feed.png",
+          "./assets/screenshots/07-review-phone.png"
+        ]
+      }
+    }
+  }
+}

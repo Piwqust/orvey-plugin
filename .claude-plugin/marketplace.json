@@ -1,0 +1,16 @@
+{
+  "name": "orvey",
+  "owner": {
+    "name": "Piwqust"
+  },
+  "metadata": {
+    "description": "orvey: an image studio on your own API key, with widgets in Claude and ChatGPT."
+  },
+  "plugins": [
+    {
+      "name": "orvey",
+      "source": "./plugins/orvey",
+      "description": "Concepts, drafts and finals from your orvey studio; result cards and concept boards right in the chat."
+    }
+  ]
+}

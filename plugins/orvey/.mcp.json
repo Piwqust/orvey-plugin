@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "orvey": {
+      "type": "http",
+      "url": "https://mcp.orvey.angleford.co/mcp"
+    }
+  }
+}
