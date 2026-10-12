@@ -31,25 +31,37 @@ computer control. Say in one line that orvey is not connected and how to connect
 | The person wants | Do |
 |---|---|
 | options, ideas, a look, "не знаю, что хочу" | **Concepts** (below) |
-| one picture they can describe | `create_images` with `purpose: "draft"`, `count` 2-4, then a final |
+| one picture they can describe | `create_images` with **their words as the prompt, unchanged**, `purpose: "draft"`, then a final |
+| a better prompt ("улучши промпт") | `enhance_prompt`: one look and an idea; each call another one (`before` = earlier summaries) |
 | to make or browse pictures by hand | `open_studio` (full-screen studio in the chat; no generation by itself) |
 | something made before | `search_images` (add `semantic: true` for "по смыслу") before generating anew |
 | to test one idea against another | `run_experiment` (one variable), then `record_verdict` |
 | to build a page from a picture | workflow `design-to-code` (`get_studio_info topic=instructions name=design-to-code`) |
 
-## Concepts: many different ideas, then the person chooses
+## The person's words go as they are
 
-1. Read `get_studio_info` with `topic: "instructions"`, `name: "creative-exploration"`, then `topic: "model_instructions"`
-   (the default model is GPT Image 2.5 Sunburst). Write prompts to that guide, in English; text to draw stays in quotes.
-2. Write 8-12 genuinely different concepts, each with its own prompt, `title`, `framework` and `abstraction`
-   (about 4 abstract, 4 conceptual, 2 literal). Translate ideas into what the eye sees.
-3. `create_concepts` with `dry_run: true` first. It costs nothing; the card shows the plan and names near-duplicates.
+GPT Image 2.5 reads a prompt like a message, in Russian as well as English, and follows it literally. A request the
+person can describe goes to `create_images` as they wrote it: no translating, no added style words, no "cinematic, 8k".
+Only name attached pictures `image 1`, `image 2`. Rewrite only when they ask (`enhance_prompt`).
+
+## Concepts: different ideas that belong together, then the person chooses
+
+1. Decide what varies: the **idea** (default: one look shared word for word, different meanings) or the **look** (the
+   person asks for styles or looks: one picture, different looks). Never both at random: ten concepts that each pick
+   their own medium are a pile, not a choice.
+2. Easiest: `create_concepts` with `brief` (the person's words) and `ideate: {n: 8}` (`vary: "style"` for looks). orvey's
+   art director keeps what the brief fixes (the person or product from the references, the text), picks one look and
+   writes ideas from direct to abstract.
+3. Or write them yourself: read `get_studio_info` `topic: "instructions"` `name: "creative-exploration"` and
+   `topic: "model_instructions"` (default model GPT Image 2.5 Sunburst); each concept gets a prompt (the look, then the
+   picture), a `title`, an `idea` in the person's language and an `abstraction`.
+4. `create_concepts` with `dry_run: true` first. It costs nothing; the card shows the plan and names near-duplicates.
    Rewrite what it flags (change the idea, not the wording).
-4. The same call without `dry_run`, `wait: 40`. Look at the contact sheet once; `view_images` for two or three finalists.
-5. Let the person choose. In a chat with cards they tick pictures and press «Отправить агенту»: the choice arrives as
+5. The same call without `dry_run`, `wait: 40`. Look at the contact sheet once; `view_images` for two or three finalists.
+6. Let the person choose. In a chat with cards they tick pictures and press «Отправить агенту»: the choice arrives as
    their message. Otherwise give them `review_url` (works on a phone) and call `wait_for_batch` with `until: "picked"`.
    No person around: pick two or three yourself, furthest apart, and say why.
-6. Take the pick forward: `refs: ["<image id>"]` with what to keep, one change at a time; `purpose: "final"`, `count` 1.
+7. Take the pick forward: `refs: ["<image id>"]` with what to keep, one change at a time; `purpose: "final"`, `count` 1.
 
 ## Rules that save money
 
