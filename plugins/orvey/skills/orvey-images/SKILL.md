@@ -32,7 +32,7 @@ computer control. Say in one line that orvey is not connected and how to connect
 |---|---|
 | options, ideas, a look, "не знаю, что хочу" | **Concepts** (below) |
 | one picture they can describe | `create_images` with **their words as the prompt, unchanged**, `purpose: "draft"`, then a final |
-| a better prompt ("улучши промпт") | `enhance_prompt`: one look and an idea; each call another one (`before` = earlier summaries) |
+| a better prompt ("улучши промпт") | `enhance_prompt` with the references in `refs`: precise, nothing added (`before` = earlier summaries) |
 | to make or browse pictures by hand | `open_studio` (full-screen studio in the chat; no generation by itself) |
 | something made before | `search_images` (add `semantic: true` for "по смыслу") before generating anew |
 | to test one idea against another | `run_experiment` (one variable), then `record_verdict` |
@@ -46,15 +46,15 @@ Only name attached pictures `image 1`, `image 2`. Rewrite only when they ask (`e
 
 ## Concepts: different ideas that belong together, then the person chooses
 
-1. Decide what varies: the **idea** (default: one look shared word for word, different meanings) or the **look** (the
-   person asks for styles or looks: one picture, different looks). Never both at random: ten concepts that each pick
-   their own medium are a pile, not a choice.
-2. Easiest: `create_concepts` with `brief` (the person's words) and `ideate: {n: 8}` (`vary: "style"` for looks). orvey's
-   art director keeps what the brief fixes (the person or product from the references, the text), picks one look and
-   writes ideas from direct to abstract.
+1. Look at the references. Decide what varies: what the brief leaves open (default: the pose, the moment, the framing)
+   or the **look** (the person asks for styles or looks: one picture, different looks). Ideas from outside the brief and
+   looks nobody gave are noise, not options; a person from a reference keeps their face, large and recognisable.
+2. Easiest: `create_concepts` with `brief` (the person's words), the references in `shared.refs` and `ideate: {n: 4}`
+   (`vary: "style"` for looks). orvey's text model looks at the references, keeps what the brief fixes and takes the look
+   only from the references and the brief.
 3. Or write them yourself: read `get_studio_info` `topic: "instructions"` `name: "creative-exploration"` and
-   `topic: "model_instructions"` (default model GPT Image 2.5 Sunburst); each concept gets a prompt (the look, then the
-   picture), a `title`, an `idea` in the person's language and an `abstraction`.
+   `topic: "model_instructions"` (default model GPT Image 2.5 Sunburst); each concept gets a prompt (the given look, then
+   the take), a `title`, an `idea` in the person's language and an `abstraction`.
 4. `create_concepts` with `dry_run: true` first. It costs nothing; the card shows the plan and names near-duplicates.
    Rewrite what it flags (change the idea, not the wording).
 5. The same call without `dry_run`, `wait: 40`. Look at the contact sheet once; `view_images` for two or three finalists.

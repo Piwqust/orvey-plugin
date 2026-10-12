@@ -18,7 +18,7 @@ The server's own descriptions are authoritative (`tools/list`); this is the shor
 - `edit_image`: `image_id` (or `file`, a picture the person attached in ChatGPT) + `change` in plain words; everything
   else stays, the shape follows the picture; `count` 1-4, `keep_faces`. Use it for "make the background blue", "remove the text".
 - `create_concepts`: `brief`, `concepts` [{title, idea, prompt, framework, abstraction}] or `ideate: {n, vary: idea|style}`
-  (one look for the set, ideas that differ in meaning),
+  (it looks at `shared.refs`; the look only from them and the brief, takes differ in pose, moment, framing),
   `diversity: {select: n}`, `per_concept`, `dry_run`, `wait`, `name`.
 - `run_experiment`: `base` request + one `vary` axis with values; `per_variant` 2-3. `get_experiment`, `record_verdict`.
 - `upload_reference`: base64 or data URL (or `file`, a picture attached in ChatGPT) → `ast_` id for `refs` or for
@@ -36,8 +36,8 @@ The server's own descriptions are authoritative (`tools/list`); this is the shor
 
 ## Prompts
 
-- `check_prompt` (free lint), `enhance_prompt` (only when asked: one look and an idea, in the message's language; `before`
-  takes the summaries of earlier proposals for another one), `vary_prompt` (one-axis versions).
+- `check_prompt` (free lint), `enhance_prompt` (only when asked: `refs` to let it see the references; precise, nothing
+  added, in the message's language; `before` takes the summaries of earlier proposals), `vary_prompt` (one-axis versions).
 
 ## The studio view
 
