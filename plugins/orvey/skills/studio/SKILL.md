@@ -5,19 +5,16 @@ description: >
   "хочу сам порисовать", "покажи мои картинки" and wants to work with orvey by hand.
 argument-hint: "[batch id]"
 metadata:
-  version: "1.0.0"
+  version: "1.4.0"
 ---
 
 # orvey studio
 
-Open the orvey studio for the person.
-
-Use only the orvey tools. If they are not in this session, stop and say how to connect orvey (see "Only through orvey"
-in the `orvey-images` skill); never fall back to another image tool, a browser or the website.
+Open the orvey studio for the person. Use only the orvey tools (see "Only through orvey" in `orvey-images`).
 
 1. Call `open_studio` (pass `batch_id` when the arguments or the conversation name a batch or concepts board).
-2. In a chat that draws views, the studio opens full screen: a composer with the price in tokens on the button, the feed
-   of recent batches, the gallery with search by words or by meaning, and concept boards. Say so in one line and stop;
-   generating there is the person's own action.
-3. Where the chat cannot draw views (a terminal, Codex), say so and give the short summary the tool returned. Do not
-   open the website in a browser for the person; they can open https://orvey.angleford.co themselves if they want.
+2. In a chat that draws views, the studio opens full screen: the person writes, picks the model (their own choice, so it
+   is drawn on that model) and generates there themselves, with the price in tokens on the button. Say so in one line and stop.
+3. Where the chat cannot draw views (a terminal, Codex), say so and give the short summary the tool returned. Do not open
+   the website for the person; they can open https://orvey.angleford.co themselves.
+4. If the person then asks you to draw with a model they named, send it with `person_named_model: true`.
