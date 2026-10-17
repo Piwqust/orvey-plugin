@@ -6,7 +6,7 @@ description: >
   "придумай варианты", "концепты", "обложку", or wants to find, compare, refine or build from pictures made with the
   person's orvey image studio (the `orvey` MCP server of this plugin).
 metadata:
-  version: "1.6.0"
+  version: "1.6.1"
 ---
 
 # orvey: pictures through the person's own studio

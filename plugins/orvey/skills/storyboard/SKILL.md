@@ -6,7 +6,7 @@ description: >
   "shot list", "keyframes for Kling / Veo / Seedance" with orvey. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.6.0"
+  version: "1.6.1"
 ---
 
 # orvey storyboard
@@ -25,7 +25,7 @@ only the orvey tools (see "Only through orvey" in `orvey-images`).
    of it (frames every 0.5 s, 4x4 a sheet, each with its time; ffmpeg does it with its fps, scale and tile filters), `upload_reference` them and pass
    `storyboard.example: {refs, seconds, name}`. `aspect` 9:16 for Reels,
    Shorts and TikTok, 16:9 otherwise; `look: "film"` (frames for image-to-video, the default) or `"sketch"` when they want
-   a classic pencil storyboard. Leave `model` out.
+   a classic pencil storyboard. Leave `model` out. Frames go at 1K, the cheapest; `storyboard.tier: "2K"` or `"4K"` only when the person asks.
 4. Show the shots in a short list (number, size, seconds, the action, the line) with the price (`estimate.tokens`). Apply
    what the person changes (`storyboard: {id, shots: [...]}` keeping each shot's `id`).
 5. Draw: `create_concepts` with `storyboard: {id}` and `wait: 40`; then `wait_for_batch` with the storyboard id until it is
