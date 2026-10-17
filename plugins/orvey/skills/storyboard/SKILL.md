@@ -6,7 +6,7 @@ description: >
   "shot list", "keyframes for Kling / Veo / Seedance" with orvey. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.5.0"
+  version: "1.6.0"
 ---
 
 # orvey storyboard
@@ -19,7 +19,11 @@ only the orvey tools (see "Only through orvey" in `orvey-images`).
    unchanged: the planner stages what they say and adds no characters, brands or text.
 2. Pictures of the characters, places or the product: `upload_reference` each, pass them in `shared.refs` and name them in
    `storyboard.ref_names` ("Аня", "кафе").
-3. `create_concepts` with `brief`, `storyboard: {seconds, aspect, look}` and `dry_run: true`. `aspect` 9:16 for Reels,
+3. `create_concepts` with `brief`, `storyboard: {seconds, aspect, look, genre}` and `dry_run: true`. A product or app video,
+   a feature launch, text overlays, an end card: `genre: "motion"` (motion design: the brief's on-screen text drawn
+   verbatim, one idea per frame, a fixed design system). A video to follow ("в стиле этого ролика"): make contact sheets
+   of it (frames every 0.5 s, 4x4 a sheet, each with its time; ffmpeg does it with its fps, scale and tile filters), `upload_reference` them and pass
+   `storyboard.example: {refs, seconds, name}`. `aspect` 9:16 for Reels,
    Shorts and TikTok, 16:9 otherwise; `look: "film"` (frames for image-to-video, the default) or `"sketch"` when they want
    a classic pencil storyboard. Leave `model` out.
 4. Show the shots in a short list (number, size, seconds, the action, the line) with the price (`estimate.tokens`). Apply

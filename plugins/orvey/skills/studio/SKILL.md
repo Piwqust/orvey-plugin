@@ -5,7 +5,7 @@ description: >
   "хочу сам порисовать", "покажи мои картинки" and wants to work with orvey by hand.
 argument-hint: "[batch id]"
 metadata:
-  version: "1.5.0"
+  version: "1.6.0"
 ---
 
 # orvey studio
