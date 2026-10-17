@@ -6,7 +6,7 @@ description: >
   "придумай варианты", "концепты", "обложку", or wants to find, compare, refine or build from pictures made with the
   person's orvey image studio (the `orvey` MCP server of this plugin).
 metadata:
-  version: "1.4.0"
+  version: "1.5.0"
 ---
 
 # orvey: pictures through the person's own studio
@@ -37,6 +37,7 @@ orvey website, do not use computer control. Say in one line that orvey is not co
 | something made before | `search_images` (`semantic: true` for "по смыслу") |
 | to test one idea against another | `run_experiment`, then `record_verdict` |
 | to build a page from a picture | `get_studio_info` `topic: "instructions"` `name: "design-to-code"` |
+| a storyboard of a video (раскадровка, shots, keyframes) | the `storyboard` skill: `create_concepts` with `brief` = the script and `storyboard: {...}` |
 
 ## Four rules that matter most
 

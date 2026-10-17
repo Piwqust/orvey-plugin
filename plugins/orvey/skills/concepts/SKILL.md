@@ -5,7 +5,7 @@ description: >
   "разные идеи", "different directions", "a moodboard" for one brief with orvey. Takes the brief as its argument.
 argument-hint: "<brief: what it is for, what is fixed>"
 metadata:
-  version: "1.4.0"
+  version: "1.5.0"
 ---
 
 # orvey concepts
