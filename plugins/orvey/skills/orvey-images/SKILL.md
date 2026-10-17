@@ -6,7 +6,7 @@ description: >
   "придумай варианты", "концепты", "обложку", or wants to find, compare, refine or build from pictures made with the
   person's orvey image studio (the `orvey` MCP server of this plugin).
 metadata:
-  version: "1.6.1"
+  version: "1.6.2"
 ---
 
 # orvey: pictures through the person's own studio
@@ -45,8 +45,9 @@ orvey website, do not use computer control. Say in one line that orvey is not co
 - **Model.** Leave `model` out: GPT Image 2.5 Sunburst draws everything. When the person names a model in their own
   words ("нарисуй в Nano Banana"), pass it with `person_named_model: true`; a model you choose yourself is drawn on
   Sunburst anyway.
-- **Quality.** Leave `purpose`, `tier` and `quality` out (the model's own settings). `purpose: "draft"` only when the
-  person asks for quick or cheap pictures.
+- **Quality.** Leave `purpose`, `tier` and `quality` out (the model's own settings: 1K, the cheapest). `tier: "2K"` or
+  `"4K"` only when the person asks for a higher resolution in their own words; `purpose: "draft"` only when the person
+  asks for quick or cheap pictures.
 - **Money.** Say prices in tokens. `dry_run` shows `estimate.tokens` and `wallet`; `insufficient_tokens` means the
   balance is too low: tell the person, do not retry.
 

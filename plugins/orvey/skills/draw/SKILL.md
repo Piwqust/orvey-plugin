@@ -5,7 +5,7 @@ description: >
   picture of ..." with a clear idea of the picture. Takes the description as its argument.
 argument-hint: "<what to draw> [--aspect 16:9] [--count 2] [--model <name the person said>] [--quick] [--improve]"
 metadata:
-  version: "1.6.1"
+  version: "1.6.2"
 ---
 
 # orvey draw

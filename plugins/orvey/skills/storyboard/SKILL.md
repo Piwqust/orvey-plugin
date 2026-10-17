@@ -6,7 +6,7 @@ description: >
   "shot list", "keyframes for Kling / Veo / Seedance" with orvey. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.6.1"
+  version: "1.6.2"
 ---
 
 # orvey storyboard
