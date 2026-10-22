@@ -5,7 +5,8 @@ The server's own descriptions are authoritative (`tools/list`); this is the shor
 ## Orient
 
 - `get_studio_info` `topic`: `instructions` (workflows; `name` to read one, `path` for its files), `model_instructions`
-  (`model` id or the default), `models`, `frameworks`, `presets`, `learnings` (`q`), `prompting_guide`.
+  (`model` id or the default), `models`, `account` (the person's token balance, recent spending, what a picture
+  costs per model and resolution), `frameworks`, `presets`, `learnings` (`q`), `prompting_guide`.
 - `list_folders`, `create_folder` (`name`, `parent`): results go to `MCP / <program> / <task>` unless `folder` is given.
 
 ## Make
@@ -14,7 +15,9 @@ The server's own descriptions are authoritative (`tools/list`); this is the shor
   data URLs or https links; the prompt calls them image 1, image 2), `ref_files`, `folder`, `name`, `wait`, `dry_run`,
   `idempotency_key`. Leave `model`, `purpose`, `tier`, `quality` out unless the person asked; a model the person named
   goes with `person_named_model: true`.
-- `edit_image`: `image_id` (or `file`) + `change` in the person's words; `count` 1-4, `keep_faces`.
+- `edit_image`: `image_id` (or `file`) + `change` in the person's words; `count` 1-4, `keep_faces`. `action`:
+  `upscale` (4K, details kept), `remove_background` (transparent PNG), `expand` (continue the picture to a new `aspect`),
+  only when the person asks for that; `change` then adds their own words.
 - `create_concepts`: `brief`, `shared` (`refs`, `aspect` ...), `ideate` (`n`, default 4; `vary`: `idea` or `style`) or your
   own `concepts`; `diversity`, `per_concept`, `dry_run`, `wait`, `name`.
 - `run_experiment`: `base` request + one `vary` axis (`axis`, `values`); `per_variant` 2-3. `get_experiment`, `record_verdict`.
