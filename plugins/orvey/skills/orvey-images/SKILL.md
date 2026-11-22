@@ -7,7 +7,7 @@ description: >
   with the person's orvey image studio (the `orvey` MCP server of this plugin). With this plugin installed the person's
   pictures are drawn by orvey, not by the host's built-in image generation.
 metadata:
-  version: "1.7.1"
+  version: "1.7.2"
 ---
 
 # orvey: pictures through the person's own studio
@@ -38,6 +38,7 @@ orvey website, do not use computer control. Say in one line that orvey is not co
 | options, ideas, a look | `create_concepts` with `brief`, `shared.refs` and `ideate: {n: 4}`, `dry_run: true` first |
 | a change to a picture | `edit_image` with `image_id` and `change` in their own words |
 | a bigger picture, a cut-out, another shape | `edit_image` `action`: `upscale`, `remove_background` or `expand` (with `aspect`) |
+| a sticker, an icon, a product alone on a transparent background | `create_images` with `background: "transparent"` (any model; the subject alone, no scene) |
 | a better prompt | `enhance_prompt` with the references in `refs` (only when they ask) |
 | to make or browse by hand | `open_studio` |
 | something made before | `search_images` (`semantic: true` for "по смыслу") |
@@ -50,13 +51,15 @@ orvey website, do not use computer control. Say in one line that orvey is not co
 - **Words as they are.** No translating, no added style words; only call attached pictures `image 1`, `image 2`.
 - **Model.** Leave `model` out: GPT Image 2.6 Sunburst draws everything. When the person names a model in their own
   words ("нарисуй в Nano Banana"), pass it with `person_named_model: true`; a model you choose yourself is drawn on
-  Sunburst anyway.
+  Sunburst anyway. `get_studio_info` `topic: "models"` lists the models on offer and how many references each takes
+  (GPT Image 8, Nano Banana 14).
 - **Quality.** Leave `purpose`, `tier` and `quality` out (the model's own settings: 1K, the cheapest). `tier: "2K"` or
   `"4K"` only when the person asks for a higher resolution in their own words; `purpose: "draft"` only when the person
   asks for quick or cheap pictures.
 - **Money.** Say prices in tokens. `dry_run` shows `estimate.tokens` and `wallet`; `get_studio_info` `topic: "account"`
   shows the balance, recent spending and prices; `insufficient_tokens` means the balance is too low: tell the person,
-  do not retry.
+  do not retry. `plan_limit` is a limit of the person's plan (the message says which one and whether waiting helps);
+  `frozen` means the account cannot spend now: tell the person.
 
 ## In a terminal (Claude Code, Codex)
 

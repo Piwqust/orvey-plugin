@@ -7,7 +7,7 @@ description: >
   (the same people in every shot), not one by one with the host's built-in image generation. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.7.1"
+  version: "1.7.2"
 ---
 
 # orvey storyboard
