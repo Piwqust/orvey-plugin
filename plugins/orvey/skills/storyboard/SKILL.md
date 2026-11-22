@@ -7,7 +7,7 @@ description: >
   (the same people in every shot), not one by one with the host's built-in image generation. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.7.2"
+  version: "1.7.3"
 ---
 
 # orvey storyboard
@@ -27,7 +27,10 @@ only the orvey tools (see "Only through orvey" in `orvey-images`).
    `storyboard.example: {refs, seconds, name}`. `aspect` 9:16 for Reels,
    Shorts and TikTok, 16:9 otherwise; `look: "film"` (frames for image-to-video, the default) or `"sketch"` when they want
    a classic pencil storyboard. Leave `model` out. Frames go at 1K, the cheapest; `storyboard.tier: "2K"` or `"4K"` only when the person asks.
-4. Show the shots in a short list (number, size, seconds, the action, the line) with the price (`estimate.tokens`). Apply
+4. The dry run is your own check: when it is valid and the balance is enough, go straight to step 5 in the same turn.
+   Do not ask the person to confirm the plan or to open the studio first. Stop here only when they asked to see the plan
+   before drawing or the balance is not enough. Afterwards show the shots in a short list (number, size, seconds, the
+   action, the line) with the frames and the price (`estimate.tokens`). Apply
    what the person changes with `storyboard: {id, rev, shots: [...]}`, keeping each shot's `id` and sending the `rev` you
    read (without it the change is refused once the person has edited it on the page), and `dry_run: true`: that call
    also draws whatever is missing, so the dry run saves the change and shows the new price without drawing.

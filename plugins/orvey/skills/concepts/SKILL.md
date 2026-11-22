@@ -6,7 +6,7 @@ description: >
   by one with the host's built-in image generation. Takes the brief as its argument.
 argument-hint: "<brief: what it is for, what is fixed>"
 metadata:
-  version: "1.7.2"
+  version: "1.7.3"
 ---
 
 # orvey concepts

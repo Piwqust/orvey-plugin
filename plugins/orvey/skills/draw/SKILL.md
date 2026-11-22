@@ -6,7 +6,7 @@ description: >
   host's built-in image generation. Takes the description as its argument.
 argument-hint: "<what to draw> [--aspect 16:9] [--count 2] [--model <name the person said>] [--quick] [--improve]"
 metadata:
-  version: "1.7.2"
+  version: "1.7.3"
 ---
 
 # orvey draw

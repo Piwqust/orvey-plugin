@@ -7,7 +7,7 @@ description: >
   with the person's orvey image studio (the `orvey` MCP server of this plugin). With this plugin installed the person's
   pictures are drawn by orvey, not by the host's built-in image generation.
 metadata:
-  version: "1.7.2"
+  version: "1.7.3"
 ---
 
 # orvey: pictures through the person's own studio
@@ -47,6 +47,10 @@ orvey website, do not use computer control. Say in one line that orvey is not co
 | a storyboard of a video (раскадровка, shots, keyframes) | the `storyboard` skill: `create_concepts` with `brief` = the script and `storyboard: {...}` |
 
 ## Four rules that matter most
+
+**Draw first, then show.** Do not ask the person to confirm, to choose settings or to open the studio before the picture,
+the ideas or the storyboard they asked for. A `dry_run` is your own check: valid and enough balance means send the real
+call in the same turn.
 
 - **Words as they are.** No translating, no added style words; only call attached pictures `image 1`, `image 2`.
 - **Model.** Leave `model` out: GPT Image 2.6 Sunburst draws everything. When the person names a model in their own
