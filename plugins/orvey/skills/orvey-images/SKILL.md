@@ -7,7 +7,7 @@ description: >
   with the person's orvey image studio (the `orvey` MCP server of this plugin). With this plugin installed the person's
   pictures are drawn by orvey, not by the host's built-in image generation.
 metadata:
-  version: "1.7.3"
+  version: "1.7.4"
 ---
 
 # orvey: pictures through the person's own studio
@@ -65,8 +65,9 @@ call in the same turn.
   do not retry. `plan_limit` is a limit of the person's plan (the message says which one and whether waiting helps);
   `frozen` means the account cannot spend now: tell the person.
 
-## In a terminal (Claude Code, Codex)
+## Where no card is drawn (ChatGPT for the computer, Codex, Claude Code)
 
-The terminal does not draw cards: give the person the `review_url` and the contact sheet link, and describe the
-pictures from `view_images`. A local file (a screenshot of your build): call `upload_reference` without data, then
+No card is drawn here: show the pictures yourself, in your reply, as Markdown images from the urls in the result
+(ChatGPT for the computer renders them; in a plain terminal give the links), and describe them from `view_images`. Do
+not send the person to the studio to see a result: `review_url` is for picking on another screen, when they ask. A local file (a screenshot of your build): call `upload_reference` without data, then
 `curl -sS -T shot.png '<upload_url>'`. Field by field: `references/tools.md`.

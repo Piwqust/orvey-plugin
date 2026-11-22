@@ -7,7 +7,7 @@ description: >
   (the same people in every shot), not one by one with the host's built-in image generation. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.7.3"
+  version: "1.7.4"
 ---
 
 # orvey storyboard
@@ -37,5 +37,8 @@ only the orvey tools (see "Only through orvey" in `orvey-images`).
 5. Draw: `create_concepts` with `storyboard: {id}` and `wait: 40`; then `wait_for_batch` with the storyboard id until it is
    done. A sample frame goes first, the others follow it so the people stay the same.
 6. Look at the board image. Redraw a weak frame with `storyboard: {id, redo: [n]}`.
-7. Hand over `links.page` (edit and redraw in the studio), `links.board_pdf`, and each shot's `video` prompt with its frame
-   as the start image for Kling, Veo, Seedance or Runway.
+7. Show the frames in your reply, in the chat: where no orvey card appears under the call, embed `links.board_png` (the
+   whole board in one picture) as a Markdown image, and single frames from each shot's image url when asked. Do not answer
+   with a link instead of the frames and do not open the studio. `links.page` (edit and redraw in the studio) and
+   `links.board_pdf` only when the person asks; each shot's `video` prompt with its frame is the start image for Kling,
+   Veo, Seedance or Runway.
