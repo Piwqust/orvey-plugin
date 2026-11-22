@@ -1,11 +1,12 @@
 ---
 name: draw
 description: >
-  This skill should be used when the user runs the orvey draw command (/orvey:draw in Claude Code) or asks orvey to "нарисуй ...", "draw ...", "generate a
-  picture of ..." with a clear idea of the picture. Takes the description as its argument.
+  This skill should be used when the user runs the orvey draw command (/orvey:draw in Claude Code) or asks to "нарисуй ...", "сгенерируй картинку ...", "draw ...",
+  "generate a picture of ..." with a clear idea of the picture. The picture is drawn by the person's orvey studio, not by the
+  host's built-in image generation. Takes the description as its argument.
 argument-hint: "<what to draw> [--aspect 16:9] [--count 2] [--model <name the person said>] [--quick] [--improve]"
 metadata:
-  version: "1.7.0"
+  version: "1.7.1"
 ---
 
 # orvey draw

@@ -3,10 +3,11 @@ name: storyboard
 description: >
   This skill should be used when the user runs the orvey storyboard command (/orvey:storyboard in Claude Code) or asks
   for "раскадровка", "раскадровку для видео", "разложи на кадры", "кадры для клипа / рилс / рекламы", "storyboard",
-  "shot list", "keyframes for Kling / Veo / Seedance" with orvey. Takes the script or the idea of the video as its argument.
+  "shot list", "keyframes for Kling / Veo / Seedance". The frames are planned and drawn by the person's orvey studio in one call
+  (the same people in every shot), not one by one with the host's built-in image generation. Takes the script or the idea of the video as its argument.
 argument-hint: "<the script, the idea, the voice-over or the lyrics; length and format if known>"
 metadata:
-  version: "1.7.0"
+  version: "1.7.1"
 ---
 
 # orvey storyboard
@@ -27,7 +28,9 @@ only the orvey tools (see "Only through orvey" in `orvey-images`).
    Shorts and TikTok, 16:9 otherwise; `look: "film"` (frames for image-to-video, the default) or `"sketch"` when they want
    a classic pencil storyboard. Leave `model` out. Frames go at 1K, the cheapest; `storyboard.tier: "2K"` or `"4K"` only when the person asks.
 4. Show the shots in a short list (number, size, seconds, the action, the line) with the price (`estimate.tokens`). Apply
-   what the person changes (`storyboard: {id, shots: [...]}` keeping each shot's `id`).
+   what the person changes with `storyboard: {id, rev, shots: [...]}`, keeping each shot's `id` and sending the `rev` you
+   read (without it the change is refused once the person has edited it on the page), and `dry_run: true`: that call
+   also draws whatever is missing, so the dry run saves the change and shows the new price without drawing.
 5. Draw: `create_concepts` with `storyboard: {id}` and `wait: 40`; then `wait_for_batch` with the storyboard id until it is
    done. A sample frame goes first, the others follow it so the people stay the same.
 6. Look at the board image. Redraw a weak frame with `storyboard: {id, redo: [n]}`.

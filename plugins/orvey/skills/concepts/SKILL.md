@@ -2,10 +2,11 @@
 name: concepts
 description: >
   This skill should be used when the user runs the orvey concepts command (/orvey:concepts in Claude Code) or asks for "10 вариантов", "разные концепты",
-  "разные идеи", "different directions", "a moodboard" for one brief with orvey. Takes the brief as its argument.
+  "разные идеи", "different directions", "a moodboard" for one brief. The pictures are drawn by the person's orvey studio in one call, not one
+  by one with the host's built-in image generation. Takes the brief as its argument.
 argument-hint: "<brief: what it is for, what is fixed>"
 metadata:
-  version: "1.7.0"
+  version: "1.7.1"
 ---
 
 # orvey concepts

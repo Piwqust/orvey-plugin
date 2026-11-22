@@ -3,10 +3,11 @@ name: orvey-images
 description: >
   This skill should be used when the user asks to "draw", "generate an image", "make a picture", "come up with options",
   "give me concepts", "moodboard", "a banner / logo / cover / product shot / UI mockup", "нарисуй", "сгенерируй картинку",
-  "придумай варианты", "концепты", "обложку", or wants to find, compare, refine or build from pictures made with the
-  person's orvey image studio (the `orvey` MCP server of this plugin).
+  "придумай варианты", "концепты", "обложку", "раскадровку", or wants to find, compare, refine or build from pictures made
+  with the person's orvey image studio (the `orvey` MCP server of this plugin). With this plugin installed the person's
+  pictures are drawn by orvey, not by the host's built-in image generation.
 metadata:
-  version: "1.7.0"
+  version: "1.7.1"
 ---
 
 # orvey: pictures through the person's own studio
@@ -18,8 +19,12 @@ newer than this file: follow them where they say more or differ. This skill only
 
 ## Only through orvey
 
-Every picture of this plugin is made by the person's orvey tools (`create_images`, `create_concepts`, `open_studio` ...).
-If those tools are not in this session, **stop**: do not draw with another image generator, do not open a browser or the
+Every picture the person asks for is made by their orvey tools (`create_images`, `create_concepts`, `edit_image`,
+`open_studio` ...), also when they do not name orvey: they installed this plugin to draw with their own studio. Do not
+use the host's built-in image generation for it (image_gen and the imagegen skill in ChatGPT and Codex): its pictures
+are not in the person's orvey library, cannot be edited or picked from there, and a storyboard drawn frame by frame
+loses the same people from shot to shot. Use the built-in generator only when the person asks for it by name.
+If the orvey tools are not in this session, **stop**: do not draw with another image generator, do not open a browser or the
 orvey website, do not use computer control. Say in one line that orvey is not connected and how to connect it:
 
 - ChatGPT / Codex: Settings → Apps → orvey → Connect (or Refresh), then a new chat;
@@ -43,7 +48,7 @@ orvey website, do not use computer control. Say in one line that orvey is not co
 ## Four rules that matter most
 
 - **Words as they are.** No translating, no added style words; only call attached pictures `image 1`, `image 2`.
-- **Model.** Leave `model` out: GPT Image 2.5 Sunburst draws everything. When the person names a model in their own
+- **Model.** Leave `model` out: GPT Image 2.6 Sunburst draws everything. When the person names a model in their own
   words ("нарисуй в Nano Banana"), pass it with `person_named_model: true`; a model you choose yourself is drawn on
   Sunburst anyway.
 - **Quality.** Leave `purpose`, `tier` and `quality` out (the model's own settings: 1K, the cheapest). `tier: "2K"` or
